@@ -3,9 +3,8 @@ import { action } from '@storybook/addon-actions';
 import Crest from "../Crest";
 import { withKnobs, text, boolean, number } from '@storybook/addon-knobs';
 
-
 export default {
-  title: 'Stacked',
+  title: 'DFAT',
   component: Crest,
   decorators: [withKnobs],
 };
@@ -13,25 +12,5 @@ export default {
 export const AustralianGovernment = () => <Crest />;
 
 export const SingleAgency = () => (
-  <Crest />
-);
-
-export const MultipleAgencies = () => (
-  <Crest />
-);
-
-export const AnAustralianGovernmentInitiative = () => (
-  <Crest />
-);
-
-export const SingleAgencyWithHierarchy = () => (
-  <Crest />
-);
-
-export const SingleAgencyWithDistinctBranding = () => (
-  <Crest />
-);
-
-export const SingleAgencyWithCoBranding = () => (
   <Crest />
 );

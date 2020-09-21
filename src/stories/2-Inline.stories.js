@@ -3,9 +3,8 @@ import { action } from '@storybook/addon-actions';
 import Crest from "../Crest";
 import { withKnobs, text, boolean, number } from '@storybook/addon-knobs';
 
-
 export default {
-  title: 'Stacked',
+  title: 'Inline',
   component: Crest,
   decorators: [withKnobs],
 };
