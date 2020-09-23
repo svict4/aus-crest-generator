@@ -9,7 +9,7 @@ export default {
   decorators: [withKnobs],
 };
 
-export const AustralianGovernment = () => <Crest />;
+export const AustralianHighCommission = () => <Crest title="Australian High Commission" />;
 
 export const SingleAgency = () => (
   <Crest />

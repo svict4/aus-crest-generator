@@ -10,10 +10,12 @@ export default {
   decorators: [withKnobs],
 };
 
+export const Just_the_Crest = () => <Crest title="" />;
+
 export const AustralianGovernment = () => <Crest />;
 
 export const SingleAgency = () => (
-  <Crest />
+  <Crest agency={text('Agency', "Department of Social Services")} />
 );
 
 export const MultipleAgencies = () => (
@@ -21,7 +23,7 @@ export const MultipleAgencies = () => (
 );
 
 export const AnAustralianGovernmentInitiative = () => (
-  <Crest />
+  <Crest title={text('Agency', "An Australian Government Initiative")} />
 );
 
 export const SingleAgencyWithHierarchy = () => (
