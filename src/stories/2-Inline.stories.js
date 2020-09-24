@@ -1,10 +1,9 @@
-import React from 'react';
+import React from "react";
 import Crest from "../Crest";
-import { withKnobs, text, boolean, number } from '@storybook/addon-knobs';
-
+import { withKnobs, text, number } from "@storybook/addon-knobs";
 
 export default {
-  title: 'Inline',
+  title: "Inline",
   component: Crest,
   decorators: [withKnobs],
   parameters: {
@@ -14,30 +13,41 @@ export default {
   },
 };
 
-export const Just_the_Crest = () => <Crest title="" />;
+export const Just_the_Crest = () => (
+  <span>TODO</span>
+  // <Crest title="" svgHeight={number("SVG Height")} style="inline" />
+);
 
-export const AustralianGovernment = () => <span>TODO</span>;
+export const AustralianGovernment = () => (
+  <span>TODO</span>
+  // <Crest svgHeight={number("SVG Height")} style="inline" />
+);
 
 export const SingleAgency = () => (
   <span>TODO</span>
+  // <Crest
+  //   agency="Department of Social Services"
+  //   svgHeight={number("SVG Height")}
+  //   style="inline"
+  // />
 );
 
 export const MultipleAgencies = () => (
   <span>TODO</span>
+  // <Crest
+  //   agency={text(
+  //     "Agency",
+  //     "Department of Health; Department of Foreign Affairs and Trade; Attorney-General's Department"
+  //   )}
+  //   svgHeight={number("SVG Height")}
+  //   style="inline"
+  // />
 );
 
-export const AnAustralianGovernmentInitiative = () => (
-  <span>TODO</span>
-);
+export const AnAustralianGovernmentInitiative = () => <span>TODO</span>;
 
-export const SingleAgencyWithHierarchy = () => (
-  <span>TODO</span>
-);
+export const SingleAgencyWithHierarchy = () => <span>TODO</span>;
 
-export const SingleAgencyWithDistinctBranding = () => (
-  <span>TODO</span>
-);
+export const SingleAgencyWithDistinctBranding = () => <span>TODO</span>;
 
-export const SingleAgencyWithCoBranding = () => (
-  <span>TODO</span>
-);
+export const SingleAgencyWithCoBranding = () => <span>TODO</span>;

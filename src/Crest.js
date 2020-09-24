@@ -232,6 +232,7 @@ const CoatOfArms = () => {
 
 const Crest = ({
   title = "Australian Government",
+  style = "stacked", // or inline
   agency = "",
   svgWidth = "",
   svgHeight = "350",
@@ -284,9 +285,9 @@ const Crest = ({
             <>
               <line
                 x1={0}
-                y1={crestHeight + ((titleFontSize + paddingTopBottom) * (index + 1))}
+                y1={crestHeight + (titleFontSize + paddingTopBottom) * (index + 1)}
                 x2={viewBoxWidth}
-                y2={crestHeight + ((titleFontSize + paddingTopBottom) * (index + 1))}
+                y2={crestHeight + (titleFontSize + paddingTopBottom) * (index + 1)}
                 stroke="black"
                 strokeWidth="2"
               />

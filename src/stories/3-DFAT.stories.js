@@ -1,6 +1,6 @@
 import React from "react";
 import Crest from "../Crest";
-import { withKnobs, text, boolean, number } from "@storybook/addon-knobs";
+import { withKnobs, text, number } from "@storybook/addon-knobs";
 
 export default {
   title: "DFAT",
