@@ -1,7 +1,7 @@
 import React from 'react';
-import { action } from '@storybook/addon-actions';
 import Crest from "../Crest";
 import { withKnobs, text, boolean, number } from '@storybook/addon-knobs';
+
 
 export default {
   title: 'Inline',
@@ -9,28 +9,30 @@ export default {
   decorators: [withKnobs],
 };
 
-export const AustralianGovernment = () => <Crest />;
+export const Just_the_Crest = () => <Crest title="" />;
+
+export const AustralianGovernment = () => <span>TODO</span>;
 
 export const SingleAgency = () => (
-  <Crest />
+  <span>TODO</span>
 );
 
 export const MultipleAgencies = () => (
-  <Crest />
+  <span>TODO</span>
 );
 
 export const AnAustralianGovernmentInitiative = () => (
-  <Crest />
+  <span>TODO</span>
 );
 
 export const SingleAgencyWithHierarchy = () => (
-  <Crest />
+  <span>TODO</span>
 );
 
 export const SingleAgencyWithDistinctBranding = () => (
-  <Crest />
+  <span>TODO</span>
 );
 
 export const SingleAgencyWithCoBranding = () => (
-  <Crest />
+  <span>TODO</span>
 );

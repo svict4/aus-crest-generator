@@ -1,5 +1,4 @@
 import React from 'react';
-import { action } from '@storybook/addon-actions';
 import Crest from "../Crest";
 import { withKnobs, text, boolean, number } from '@storybook/addon-knobs';
 
@@ -10,16 +9,16 @@ export default {
   decorators: [withKnobs],
 };
 
-export const Just_the_Crest = () => <Crest title="" />;
+export const Just_the_Crest = () => <Crest title="" svgHeight={number("SVG Height")} />;
 
-export const AustralianGovernment = () => <Crest />;
+export const AustralianGovernment = () => <Crest svgHeight={number("SVG Height")}  />;
 
 export const SingleAgency = () => (
   <Crest agency={text('Agency', "Department of Social Services")} />
 );
 
 export const MultipleAgencies = () => (
-  <Crest />
+  <span>TODO</span>
 );
 
 export const AnAustralianGovernmentInitiative = () => (
@@ -27,13 +26,13 @@ export const AnAustralianGovernmentInitiative = () => (
 );
 
 export const SingleAgencyWithHierarchy = () => (
-  <Crest />
+  <span>TODO</span>
 );
 
 export const SingleAgencyWithDistinctBranding = () => (
-  <Crest />
+  <span>TODO</span>
 );
 
 export const SingleAgencyWithCoBranding = () => (
-  <Crest />
+  <span>TODO</span>
 );
