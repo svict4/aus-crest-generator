@@ -7,6 +7,11 @@ export default {
   title: 'Stacked',
   component: Crest,
   decorators: [withKnobs],
+  parameters: {
+    knobs: {
+      escapeHTML: false,
+    },
+  },
 };
 
 export const Just_the_Crest = () => <Crest title="" svgHeight={number("SVG Height")} />;
@@ -18,7 +23,7 @@ export const SingleAgency = () => (
 );
 
 export const MultipleAgencies = () => (
-  <span>TODO</span>
+  <Crest agency={text('Agency', "Department of Health; Department of Foreign Affairs and Trade; Attorney-General's Department")} />
 );
 
 export const AnAustralianGovernmentInitiative = () => (

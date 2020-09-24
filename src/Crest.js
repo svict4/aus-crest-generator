@@ -230,16 +230,26 @@ const CoatOfArms = () => {
   );
 };
 
-const Crest = ({ title = "Australian Government", agency = "", svgWidth="", svgHeight="250" }) => {
+const Crest = ({
+  title = "Australian Government",
+  agency = "",
+  svgWidth = "",
+  svgHeight = "350",
+}) => {
+  const agencyArray = agency.split(";").map((x) => x.trim());
+
   const viewBoxWidth = Math.max(
     crestWidth,
     textLength(title, "bold", titleFontSize + "px", "Times New Roman"),
-    textLength(agency, "bold", titleFontSize + "px", "Times New Roman")
+    ...agencyArray.map((x) =>
+      textLength(x, "bold", titleFontSize + "px", "Times New Roman")
+    )
   );
+
   const viewBoxHeight =
     crestHeight +
     (title ? paddingTopBottom / 2 + titleFontSize : 0) +
-    (agency ? paddingTopBottom + titleFontSize : 0) +
+    (agency ? (paddingTopBottom + titleFontSize) * (agencyArray.length + 1) : 0) +
     3; // + padding + line + agency height;
 
   const calculateViewBox = `0 0 ${viewBoxWidth} ${viewBoxHeight}`;
@@ -250,7 +260,6 @@ const Crest = ({ title = "Australian Government", agency = "", svgWidth="", svgH
       viewBox={calculateViewBox}
       version="1.1"
       height={svgHeight}
-      // {svgHeight && (height={svgHeight})}
       width={svgWidth}
       xmlns="http://www.w3.org/2000/svg"
     >
@@ -269,28 +278,33 @@ const Crest = ({ title = "Australian Government", agency = "", svgWidth="", svgH
           {title}
         </text>
       )}
-      {agency && (
-        <>
-          <line
-            x1={0}
-            y1={crestHeight + titleFontSize + paddingTopBottom}
-            x2={viewBoxWidth}
-            y2={crestHeight + titleFontSize + paddingTopBottom}
-            stroke="black"
-            strokeWidth="2"
-          />
-          <text
-            x="50%"
-            y={crestHeight + titleFontSize + paddingTopBottom + titleFontSize} // crest height + padding + height of text
-            textAnchor="middle"
-            fontWeight="bold"
-            fontFamily="Times New Roman" // "Liberation Serif" for open source
-            fontSize={titleFontSize + "px"}
-          >
-            {agency}
-          </text>
-        </>
-      )}
+      {agencyArray &&
+        agencyArray.map(function (item, index) {
+          return (
+            <>
+              <line
+                x1={0}
+                y1={crestHeight + ((titleFontSize + paddingTopBottom) * (index + 1))}
+                x2={viewBoxWidth}
+                y2={crestHeight + ((titleFontSize + paddingTopBottom) * (index + 1))}
+                stroke="black"
+                strokeWidth="2"
+              />
+              <text
+                x="50%"
+                y={
+                  crestHeight + (titleFontSize + paddingTopBottom) * (index + 1) + titleFontSize
+                } // crest height + padding + height of text
+                textAnchor="middle"
+                fontWeight="bold"
+                fontFamily="Times New Roman" // "Liberation Serif" for open source
+                fontSize={titleFontSize + "px"}
+              >
+                {item}
+              </text>
+            </>
+          );
+        })}
     </svg>
   );
 };

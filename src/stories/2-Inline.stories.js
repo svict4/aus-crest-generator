@@ -7,6 +7,11 @@ export default {
   title: 'Inline',
   component: Crest,
   decorators: [withKnobs],
+  parameters: {
+    knobs: {
+      escapeHTML: false,
+    },
+  },
 };
 
 export const Just_the_Crest = () => <Crest title="" />;

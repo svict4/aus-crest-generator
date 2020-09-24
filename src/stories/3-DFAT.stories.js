@@ -6,6 +6,11 @@ export default {
   title: "DFAT",
   component: Crest,
   decorators: [withKnobs],
+  parameters: {
+    knobs: {
+      escapeHTML: false,
+    },
+  },
 };
 
 export const AustralianHighCommission = () => (
