@@ -1,3 +1,22 @@
+TODO
+
+- [ ] Inline
+- [ ] Accept forced newlines in title
+- [ ] Accept forced newlines in agency
+- [ ] Inverse colours
+- [ ] Optimised for social media
+- [ ] Upload images for auto co-branding
+
+Inspiration: https://github.com/apigovau/crest-branding
+
+You should check with PM&C/DTA for the various guidelines and examples.
+
+- https://www.pmc.gov.au/government/commonwealth-coat-arms
+- https://www.pmc.gov.au/sites/default/files/publications/australian-government-branding-design-guidelines.pdf
+- https://www.dta.gov.au/help-and-advice/guides-and-tools/requirements-australian-government-websites/branding
+
+---
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
