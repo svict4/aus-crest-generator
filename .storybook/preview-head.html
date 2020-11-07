@@ -1,0 +1,32 @@
+<script>
+  function saveSvg(svgEl, name) {
+    svgEl.setAttribute("xmlns", "http://www.w3.org/2000/svg");
+    var svgData = svgEl.outerHTML;
+    var preface = '<?xml version="1.0" standalone="no"?>\r\n';
+    var svgBlob = new Blob([preface, svgData], {
+      type: "image/svg+xml;charset=utf-8",
+    });
+    var svgUrl = URL.createObjectURL(svgBlob);
+    var downloadLink = document.createElement("a");
+    downloadLink.href = svgUrl;
+    downloadLink.download = name;
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+    document.body.removeChild(downloadLink);
+  }
+</script>
+<button
+  id="download-svg"
+  style="
+    display: flex;
+    position: fixed;
+    left: 10px;
+    border: 3px solid rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.97);
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  "
+  onclick="saveSvg(document.querySelector('#root > svg'), 'coatofarms.svg')"
+>
+  Download this SVG
+</button>
