@@ -4,10 +4,10 @@ import "./App.css";
 const crestWidth = 338.08;
 const crestHeight = 248.76;
 
-const titleFontSize = 65;
-const titleSpacing = -2;
-const agencyFontSize = 55;
-const agencySpacing = -2;
+const titleFontSize = 71;
+const titleSpacing = -2.5;
+const agencyFontSize = 63;
+const agencySpacing = -1.5;
 const paddingTopBottom = 25;
 
 function textLength(text, spacing, fontWeight, fontSize, fontFace) {
