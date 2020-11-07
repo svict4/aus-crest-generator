@@ -5,13 +5,33 @@ const crestWidth = 338.08;
 const crestHeight = 248.76;
 
 const titleFontSize = 65;
+const titleSpacing = -2;
+const agencyFontSize = 55;
+const agencySpacing = -2;
 const paddingTopBottom = 25;
 
-function textLength(text, fontWeight, fontSize, fontFace) {
-  var canvas = document.createElement("canvas"),
-    context = canvas.getContext("2d");
+function textLength(text, spacing, fontWeight, fontSize, fontFace) {
+  let canvas = document.createElement("canvas");
+  let context = canvas.getContext("2d");
   context.font = `${fontWeight} ${fontSize} ${fontFace}`;
-  return context.measureText(text).width;
+  let wAll = context.measureText(text).width;
+  let length = 0, wShorter = 0, wChar = 0;
+
+  do {
+    text = text.substr(1);
+
+    if (text == "") {
+      wShorter = 0;
+    } else {
+      wShorter = context.measureText(text).width;
+    }
+
+    wChar = wAll - wShorter;
+    length += wChar + spacing;
+    wAll = wShorter;
+  } while (text != "");
+
+  return length;
 }
 
 const CoatOfArms = () => {
@@ -237,20 +257,25 @@ const Crest = ({
   svgWidth = "",
   svgHeight = "350",
 }) => {
-  const agencyArray = agency.split(";").map((x) => x.trim());
+  const titleArray = title.split(/;|\n/).map((x) => x.trim());
+  const agencyArray = agency.split(/;|\n/).map((x) => x.trim());
 
   const viewBoxWidth = Math.max(
     crestWidth,
-    textLength(title, "bold", titleFontSize + "px", "Times New Roman"),
-    ...agencyArray.map((x) =>
-      textLength(x, "bold", titleFontSize + "px", "Times New Roman")
+    ...titleArray.map((x) =>
+      textLength(title, titleSpacing, "bold", titleFontSize + "px", "Times New Roman")
+    ),
+    ...agencyArray.map((agencyTitle) =>
+      textLength(agencyTitle, agencySpacing, "bold", agencyFontSize + "px", "Times New Roman")
     )
   );
 
   const viewBoxHeight =
     crestHeight +
     (title ? paddingTopBottom / 2 + titleFontSize : 0) +
-    (agency ? (paddingTopBottom + titleFontSize) * (agencyArray.length + 1) : 0) +
+    (agency
+      ? (paddingTopBottom + agencyFontSize) * (agencyArray.length + 1)
+      : 0) +
     3; // + padding + line + agency height;
 
   const calculateViewBox = `0 0 ${viewBoxWidth} ${viewBoxHeight}`;
@@ -271,6 +296,7 @@ const Crest = ({
         <text
           x="50%"
           y={crestHeight + titleFontSize} // crest height + padding + height of text
+          style={{letterSpacing: titleSpacing}}
           textAnchor="middle"
           fontWeight="bold"
           fontFamily="Times New Roman" // "Liberation Serif" for open source
@@ -279,27 +305,36 @@ const Crest = ({
           {title}
         </text>
       )}
-      {agencyArray &&
+      {agency &&
         agencyArray.map(function (item, index) {
           return (
             <>
               <line
                 x1={0}
-                y1={crestHeight + (titleFontSize + paddingTopBottom) * (index + 1)}
+                y1={
+                  crestHeight +
+                  (agencyFontSize + paddingTopBottom) * (index + 1)
+                }
                 x2={viewBoxWidth}
-                y2={crestHeight + (titleFontSize + paddingTopBottom) * (index + 1)}
+                y2={
+                  crestHeight +
+                  (agencyFontSize + paddingTopBottom) * (index + 1)
+                }
                 stroke="black"
                 strokeWidth="2"
               />
               <text
                 x="50%"
                 y={
-                  crestHeight + (titleFontSize + paddingTopBottom) * (index + 1) + titleFontSize
+                  crestHeight +
+                  (agencyFontSize + paddingTopBottom) * (index + 1) +
+                  agencyFontSize
                 } // crest height + padding + height of text
+                style={{letterSpacing: agencySpacing}}
                 textAnchor="middle"
                 fontWeight="bold"
                 fontFamily="Times New Roman" // "Liberation Serif" for open source
-                fontSize={titleFontSize + "px"}
+                fontSize={agencyFontSize + "px"}
               >
                 {item}
               </text>

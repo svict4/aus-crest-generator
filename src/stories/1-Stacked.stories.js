@@ -14,17 +14,17 @@ export default {
 };
 
 export const Just_the_Crest = () => (
-  <Crest title="" svgHeight={number("SVG Height")} style="stacked" />
+  <Crest title="" svgHeight={number("SVG Height", 350)} style="stacked" />
 );
 
 export const AustralianGovernment = () => (
-  <Crest svgHeight={number("SVG Height")} style="stacked" />
+  <Crest svgHeight={number("SVG Height", 350)} style="stacked" />
 );
 
 export const SingleAgency = () => (
   <Crest
     agency={text("Agency", "Department of Social Services")}
-    svgHeight={number("SVG Height")}
+    svgHeight={number("SVG Height", 350)}
     style="stacked"
   />
 );
@@ -35,7 +35,7 @@ export const MultipleAgencies = () => (
       "Agency",
       "Department of Health; Department of Foreign Affairs and Trade; Attorney-General's Department"
     )}
-    svgHeight={number("SVG Height")}
+    svgHeight={number("SVG Height", 350)}
     style="stacked"
   />
 );
@@ -43,7 +43,7 @@ export const MultipleAgencies = () => (
 export const AnAustralianGovernmentInitiative = () => (
   <Crest
     title={text("Agency", "An Australian Government Initiative")}
-    svgHeight={number("SVG Height")}
+    svgHeight={number("SVG Height", 350)}
     style="stacked"
   />
 );
