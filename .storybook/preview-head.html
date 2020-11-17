@@ -54,7 +54,9 @@
   Download this SVG
 </button>
 <script>
-  if (document.querySelector('#root > svg') === null) {
-    document.getElementById("download-svg").style.display = "none";
-  }
+  document.addEventListener("DOMContentLoaded", function () {
+    if (document.querySelector("#root > svg") === null) {
+      document.getElementById("download-svg").style.display = "none";
+    }
+  });
 </script>
