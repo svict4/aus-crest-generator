@@ -1,6 +1,29 @@
 <script>
   function saveSvg(svgEl, name) {
     svgEl.setAttribute("xmlns", "http://www.w3.org/2000/svg");
+    svgEl.append(`<metadata>
+      <rdf:RDF
+           xmlns:rdf = "http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+           xmlns:rdfs = "http://www.w3.org/2000/01/rdf-schema#"
+           xmlns:dc = "http://purl.org/dc/elements/1.1/" >
+        <rdf:Description about="https://simonvictory.com/aus-crest-generator/"
+             dc:title="${name}"
+             dc:description="Australian Government Coat of Arms"
+             dc:publisher="Australian Government"
+             dc:rightsHolder="Australian Government Department of Prime Minister and Cabinet, Honours and Symbols Section"
+             dc:source="https://simonvictory.com/aus-crest-generator/"
+             dc:created="${new Date().toISOString()}"
+             dc:format="image/svg+xml"
+             dc:language="en" >
+          <dc:creator>
+            <rdf:Bag>
+              <rdf:li>Australian Government</rdf:li>
+              <rdf:li>Simon Victory</rdf:li>
+            </rdf:Bag>
+          </dc:creator>
+        </rdf:Description>
+      </rdf:RDF>
+    </metadata>`);
     var svgData = svgEl.outerHTML;
     var preface = '<?xml version="1.0" standalone="no"?>\r\n';
     var svgBlob = new Blob([preface, svgData], {
@@ -26,7 +49,12 @@
     background-color: rgba(255, 255, 255, 0.97);
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
   "
-  onclick="saveSvg(document.querySelector('#root > svg'), 'coatofarms.svg')"
+  onclick="console.log(document.getElementsByTagName('title')[0])"
 >
   Download this SVG
 </button>
+<script>
+  if (document.querySelector('#root > svg') === null) {
+    document.getElementById("download-svg").style.display = "none";
+  }
+</script>
