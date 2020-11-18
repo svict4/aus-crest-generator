@@ -49,14 +49,12 @@
     background-color: rgba(255, 255, 255, 0.97);
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
   "
-  onclick="console.log(document.getElementsByTagName('title')[0])"
+  onclick="if (document.querySelector('#root > svg') !== null) { 
+      saveSvg(document.querySelector('#root > svg'), 
+      'AusGovCoatOfArms-' + parent.document.getElementsByTagName('title')[0].innerHTML.slice(0, -12).replace(/\s+/g, '')) 
+    } else { 
+      alert('This story doesn\'t contain an exportable SVG') 
+    }"
 >
   Download this SVG
 </button>
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    if (document.querySelector("#root > svg") === null) {
-      document.getElementById("download-svg").style.display = "none";
-    }
-  });
-</script>
