@@ -14,13 +14,13 @@ export default {
 };
 
 export const FaceboookOptimised = () => (
-  <span>TODO</span>
+  <span style={{marginLeft: '150px'}}>TODO</span>
 );
 
 export const TwitterOptimised = () => (
-  <span>TODO</span>
+  <span style={{marginLeft: '150px'}}>TODO</span>
 );
 
 export const LinkedInOptimised = () => (
-  <span>TODO</span>
+  <span style={{marginLeft: '150px'}}>TODO</span>
 );

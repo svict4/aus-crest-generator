@@ -14,17 +14,17 @@ export default {
 };
 
 export const Just_the_Crest = () => (
-  <span>TODO</span>
+  <span style={{marginLeft: '150px'}}>TODO</span>
   // <Crest title="" svgHeight={number("SVG Height")} style="inline" />
 );
 
 export const AustralianGovernment = () => (
-  <span>TODO</span>
+  <span style={{marginLeft: '150px'}}>TODO</span>
   // <Crest svgHeight={number("SVG Height")} style="inline" />
 );
 
 export const SingleAgency = () => (
-  <span>TODO</span>
+  <span style={{marginLeft: '150px'}}>TODO</span>
   // <Crest
   //   agency="Department of Social Services"
   //   svgHeight={number("SVG Height")}
@@ -33,7 +33,7 @@ export const SingleAgency = () => (
 );
 
 export const MultipleAgencies = () => (
-  <span>TODO</span>
+  <span style={{marginLeft: '150px'}}>TODO</span>
   // <Crest
   //   agency={text(
   //     "Agency",
@@ -44,10 +44,10 @@ export const MultipleAgencies = () => (
   // />
 );
 
-export const AnAustralianGovernmentInitiative = () => <span>TODO</span>;
+export const AnAustralianGovernmentInitiative = () => <span style={{marginLeft: '150px'}}>TODO</span>;
 
-export const SingleAgencyWithHierarchy = () => <span>TODO</span>;
+export const SingleAgencyWithHierarchy = () => <span style={{marginLeft: '150px'}}>TODO</span>;
 
-export const SingleAgencyWithDistinctBranding = () => <span>TODO</span>;
+export const SingleAgencyWithDistinctBranding = () => <span style={{marginLeft: '150px'}}>TODO</span>;
 
-export const SingleAgencyWithCoBranding = () => <span>TODO</span>;
+export const SingleAgencyWithCoBranding = () => <span style={{marginLeft: '150px'}}>TODO</span>;

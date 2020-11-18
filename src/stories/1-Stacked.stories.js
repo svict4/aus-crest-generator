@@ -48,8 +48,15 @@ export const AnAustralianGovernmentInitiative = () => (
   />
 );
 
-export const SingleAgencyWithHierarchy = () => <span>TODO</span>;
+export const SingleAgencyWithHierarchy = () => <span style={{marginLeft: '150px'}}>TODO</span>;
 
-export const SingleAgencyWithDistinctBranding = () => <span>TODO</span>;
+export const SingleAgencyWithDistinctBranding = () => (
+  <Crest
+    agency={text(
+      "Agency",
+      "Australian Quarantine and Inspection Service"
+    )}
+  />
+);
 
-export const SingleAgencyWithCoBranding = () => <span>TODO</span>;
+export const SingleAgencyWithCoBranding = () => <span style={{marginLeft: '150px'}}>TODO</span>;
