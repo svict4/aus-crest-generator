@@ -256,11 +256,13 @@ const Crest = ({
   title = "Australian Government",
   style = "stacked", // or inline
   agency = "",
+  division = "",
   svgWidth = "",
   svgHeight = "350",
 }) => {
   const titleArray = title.split(/;|\n/).map((x) => x.trim());
   const agencyArray = agency.split(/;|\n/).map((x) => x.trim());
+  const divisionArray = division.split(/;|\n/).map((x) => x.trim());
 
   const viewBoxWidth = Math.max(
     crestWidth,
@@ -281,16 +283,31 @@ const Crest = ({
         agencyFontSize + "px",
         "Times New Roman"
       )
+    ),
+    ...divisionArray.map((divisionTitle) =>
+      textLength(
+        divisionTitle,
+        agencySpacing,
+        "normal",
+        agencyFontSize + "px",
+        "Times New Roman"
+      )
     )
   );
 
   const viewBoxHeight =
     crestHeight +
-    (title ? paddingTopBottom / 2 + titleFontSize * titleArray.length + 1 : 0) +
-    (agency
-      ? (paddingTopBottom + agencyFontSize) * (agencyArray.length + 1)
+    (title
+      ? (paddingTopBottom / 2 + titleFontSize) * titleArray.length +
+        ((paddingTopBottom / 2) * (titleArray.length - 1) + 3)
       : 0) +
-    3; // + padding + line + agency height;
+    (agency
+      ? (paddingTopBottom / 2 + agencyFontSize) * agencyArray.length +
+        ((paddingTopBottom / 2) * (agencyArray.length - 1) + 3)
+      : 0) +
+    (division
+      ? agencyFontSize * divisionArray.length + paddingTopBottom
+      : 0);
 
   const calculateViewBox = `0 0 ${viewBoxWidth} ${viewBoxHeight}`;
   const transform = `translate(${viewBoxWidth / 2 - crestWidth / 2} 0)`;
@@ -356,6 +373,29 @@ const Crest = ({
                 {item}
               </text>
             </>
+          );
+        })}
+      {division &&
+        divisionArray.map(function (item, index) {
+          return (
+            <text
+              x="50%"
+              y={
+                crestHeight +
+                (paddingTopBottom / 2 + titleFontSize) * titleArray.length +
+                (paddingTopBottom / 2) * (titleArray.length - 1) +
+                (paddingTopBottom / 2 + agencyFontSize) * agencyArray.length +
+                (paddingTopBottom / 2) * (agencyArray.length - 1) + 
+                (paddingTopBottom / 2) + ( agencyFontSize * (index + 1))
+              }
+              style={{ letterSpacing: titleSpacing }}
+              textAnchor="middle"
+              fontWeight="normal"
+              fontFamily="Times New Roman" // "Liberation Serif" for open source
+              fontSize={agencyFontSize + "px"}
+            >
+              {item}
+            </text>
           );
         })}
     </svg>
