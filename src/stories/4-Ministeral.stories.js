@@ -21,23 +21,33 @@ export const PrimeMinister = () => (
 
 export const OfficeOfPM = () => (
   <>
-    <span>TODO</span>
     <Crest
+      svgHeight={number("SVG Height", 350)}
       title={text("Title", "OFFICE OF THE PRIME MINISTER")}
+    />
+  </>
+);
+
+export const MultipleMinistersOrOffices = () => (
+  <>
+    <Crest
+      svgHeight={number("SVG Height", 350)}
+      title={text("Title", "OFFICE OF THE PRIME MINISTER\nCHIEF OF STAFF")}
     />
   </>
 );
 
 export const Senator = () => (
   <Crest
+    svgHeight={number("SVG Height", 350)}
     title={text("Title", "SENATOR GEORGE PEARCE")}
   />
 );
 
 export const PastMinisters = () => (
   <>
-    <span>TODO</span>
     <Crest
+      svgHeight={number("SVG Height", 350)}
       title={text("Title", "THE HONOURABLE KEVIN RUDD AC\n26th Prime Minister of Australia")}
     />
   </>

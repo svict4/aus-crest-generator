@@ -15,7 +15,9 @@ function textLength(text, spacing, fontWeight, fontSize, fontFace) {
   let context = canvas.getContext("2d");
   context.font = `${fontWeight} ${fontSize} ${fontFace}`;
   let wAll = context.measureText(text).width;
-  let length = 0, wShorter = 0, wChar = 0;
+  let length = 0,
+    wShorter = 0,
+    wChar = 0;
 
   do {
     text = text.substr(1);
@@ -263,16 +265,28 @@ const Crest = ({
   const viewBoxWidth = Math.max(
     crestWidth,
     ...titleArray.map((x) =>
-      textLength(title, titleSpacing, "bold", titleFontSize + "px", "Times New Roman")
+      textLength(
+        title,
+        titleSpacing,
+        "bold",
+        titleFontSize + "px",
+        "Times New Roman"
+      )
     ),
     ...agencyArray.map((agencyTitle) =>
-      textLength(agencyTitle, agencySpacing, "bold", agencyFontSize + "px", "Times New Roman")
+      textLength(
+        agencyTitle,
+        agencySpacing,
+        "bold",
+        agencyFontSize + "px",
+        "Times New Roman"
+      )
     )
   );
 
   const viewBoxHeight =
     crestHeight +
-    (title ? paddingTopBottom / 2 + titleFontSize : 0) +
+    (title ? paddingTopBottom / 2 + titleFontSize * titleArray.length + 1 : 0) +
     (agency
       ? (paddingTopBottom + agencyFontSize) * (agencyArray.length + 1)
       : 0) +
@@ -292,19 +306,22 @@ const Crest = ({
       <g id="Crest" transform={transform}>
         <CoatOfArms />
       </g>
-      {title && (
-        <text
-          x="50%"
-          y={crestHeight + titleFontSize} // crest height + padding + height of text
-          style={{letterSpacing: titleSpacing}}
-          textAnchor="middle"
-          fontWeight="bold"
-          fontFamily="Times New Roman" // "Liberation Serif" for open source
-          fontSize={titleFontSize + "px"}
-        >
-          {title}
-        </text>
-      )}
+      {title &&
+        titleArray.map(function (item, index) {
+          return (
+            <text
+              x="50%"
+              y={crestHeight + titleFontSize * (index + 1)} // crest height + padding + height of text
+              style={{ letterSpacing: titleSpacing }}
+              textAnchor="middle"
+              fontWeight="bold"
+              fontFamily="Times New Roman" // "Liberation Serif" for open source
+              fontSize={titleFontSize + "px"}
+            >
+              {item}
+            </text>
+          );
+        })}
       {agency &&
         agencyArray.map(function (item, index) {
           return (
@@ -330,7 +347,7 @@ const Crest = ({
                   (agencyFontSize + paddingTopBottom) * (index + 1) +
                   agencyFontSize
                 } // crest height + padding + height of text
-                style={{letterSpacing: agencySpacing}}
+                style={{ letterSpacing: agencySpacing }}
                 textAnchor="middle"
                 fontWeight="bold"
                 fontFamily="Times New Roman" // "Liberation Serif" for open source
