@@ -3,7 +3,7 @@ import Crest from "../Crest";
 import { withKnobs, text, number } from "@storybook/addon-knobs";
 
 export default {
-  title: "Inline",
+  title: "TODO/Inline",
   component: Crest,
   decorators: [withKnobs],
   parameters: {

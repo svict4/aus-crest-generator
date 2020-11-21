@@ -1,0 +1,19 @@
+<link rel="stylesheet" href="tingle.min.css" />
+<script src="tingle.min.js"></script>
+<script>
+  document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+      var modal = new tingle.modal({
+        footer: true,
+        stickyFooter: false,
+        closeMethods: ["overlay", "button", "escape"],
+        closeLabel: "Close",
+        cssClass: ["custom-class-1", "custom-class-2"],
+      });
+      modal.setContent("");
+      modal.open();
+    },
+    false
+  );
+</script>
