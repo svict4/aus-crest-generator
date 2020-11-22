@@ -22,7 +22,7 @@ function textLength(text, spacing, fontWeight, fontSize, fontFace) {
   do {
     text = text.substr(1);
 
-    if (text == "") {
+    if (text === "") {
       wShorter = 0;
     } else {
       wShorter = context.measureText(text).width;
@@ -31,7 +31,7 @@ function textLength(text, spacing, fontWeight, fontSize, fontFace) {
     wChar = wAll - wShorter;
     length += wChar + spacing;
     wAll = wShorter;
-  } while (text != "");
+  } while (text !== "");
 
   return length;
 }
